@@ -1,14 +1,21 @@
 kind: Template
 apiVersion: v1
 metadata:
-  name: mlbparks
+  name: tndy
   annotations:
     iconClass: icon-jboss
     description: "Ejemplo de plantilla para la aplicaci\xF3n con EAP 6 y MongoDB "
 labels:
-  application: mlbparks
+  template: oxy
   createdBy: template-mlbparks
 parameters:
+- description: Custom application domain for the route
+  name: APPLICATION_DOMAIN
+  value: template-tndy.apps-crc.testing
+  required: true
+- description: Audience to greet
+  name: HELLO_AUDIENSE
+  value: 'Engineers:'
 - description: Nombre de aplicacion.
   name: APPLICATION_NAME
   value: mlbparks
