@@ -1,7 +1,8 @@
 kind: Template
-apiVersion: v1
+apiVersion: template.openshift.io/v1
 metadata:
   name: tndy
+  namespace: template
   annotations:
     iconClass: icon-jboss
     description: "Ejemplo de plantilla para la aplicaci\xF3n con EAP 6 y MongoDB "
@@ -11,8 +12,8 @@ labels:
 parameters:
 - description: Custom application domain for the route
   name: APPLICATION_DOMAIN
-  value: template-tndy.apps-crc.testing
   required: true
+  value: template-tndy.apps-crc.testing
 - description: Audience to greet
   name: HELLO_AUDIENSE
   value: 'Engineers:'
@@ -23,7 +24,7 @@ parameters:
   name: APPLICATION_HOSTNAME
 - description: Git origen de la aplicacion
   name: GIT_URI
-  value: https://github.com/jorgemoralespou/openshift3mlbparks.git
+  value: https://github.com/bruli4n66/cursoOpenshift.git
 - description: Git Branch
   name: GIT_REF
   value: master
@@ -87,7 +88,7 @@ objects:
         from:
           kind: ImageStreamTag
           namespace: openshift
-          name: jboss-eap64-openshift:1.3
+          name: jboss-eap74-openjdk11-openshift:7.4.0
         env:
         - name: MAVEN_MIRROR_URL
           value: ${MAVEN_MIRROR_URL}
